@@ -6,6 +6,10 @@ import Home from './pages/Home';
 import Yourmovies from './pages/Yourmovies';
 import Profile from './pages/Profile';
 import Login from './pages/Login';
+import Footer from './Footer';
+import Header from './Header';
+
+import './App.css';
 
 
 const App = ()=>{
@@ -39,26 +43,45 @@ const handleLogout = ()=>{
 
   if (!isLoggedIn){
     return(
-      <Login></Login>
+      <>
+      <Header/>
+      <Login></Login>  
+      <Footer />   
+      </>      
     )
   } else{
     return(
+      <>
+      <Header/>
       <Router>
-          <nav>
-          <>
-            <li>
-            <Link to="/">Home</Link>
+          <nav id="nav">
+        
+            {/* <a id="home-a" href="home.html" >
+              Home
+            </a>
+            <a id="a" href="yourmovies.html" >
+              YourMovies
+            </a>
+            <a id="a" href="profile.html" >
+              Profile
+            </a>
+            <a id="a" href="login.html" onClick={handleLogout}>
+              Logout
+            </a> */}
+            <ul id="nav-list">
+            <li >
+            <Link id="home-link" to="/">Home</Link>
             </li>
-            <li>
-            <Link to="/yourmovies">YourMovies</Link>
+            <li   >
+            <Link id="link" to="/yourmovies">YourMovies</Link>
             </li>
-            <li>
-            <Link to="/profile">Profile</Link>
+            <li >
+            <Link id="link" to="/profile">Profile</Link>
             </li>
-            <li>
-              <Link to="#" onClick={handleLogout}>Logout</Link>
+            <li >
+              <Link id="link" to="#" onClick={handleLogout}>Logout</Link>
             </li>
-          </>
+            </ul>
           </nav>
             <Routes>
               {/* <Route path='/' element={<NavBar></NavBar>}> */}
@@ -69,8 +92,11 @@ const handleLogout = ()=>{
               {/* </Route> */}
             </Routes>
       </Router>
+      <Footer></Footer>
+      </>
     )
   }
+
 }
 
 export default App;
