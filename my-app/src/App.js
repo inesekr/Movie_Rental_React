@@ -1,15 +1,17 @@
 import React, {useState, useEffect} from 'react';
-import {BrowserRouter as Router, Routes, Route, Link, NavLink} from "react-router-dom";
+import {BrowserRouter as Router, Routes, Route, Link, useNavigate, useHistory, NavLink} from "react-router-dom";
 // import NavBar from './NavBar';
 
-import Home from './pages/Home.js';
-import Yourmovies from './pages/Yourmovies.js';
-import Profile from './pages/Profile.js';
-import Login from './pages/Login.js';
+import Home from './pages/Home';
+import Yourmovies from './pages/Yourmovies';
+import Profile from './pages/Profile';
+import Login from './pages/Login';
 
 
 const App = ()=>{
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  // const navigate = useNavigate();
+
 
   useEffect(()=>{
     const loggedIn = localStorage.getItem("isLoggedIn");
@@ -26,11 +28,13 @@ const App = ()=>{
 const handleLogout = ()=>{
   setIsLoggedIn(false);
   localStorage.removeItem("isLoggedIn");
+  // navigate.push("/login");
 };
 
 // const isLoggedIn = ()=>{
 //   return localStorage.getItem("isLoggedIn")==="true";
 // };
+
 
 
   if (!isLoggedIn){
@@ -61,6 +65,7 @@ const handleLogout = ()=>{
                 <Route index element={<Home></Home>}></Route>
                 <Route path='/yourmovies' element={<Yourmovies></Yourmovies>}></Route>
                 <Route path='/profile' element={<Profile></Profile>}></Route>
+                {/* <Route path='/login' element={<Login></Login>}></Route> */}
               {/* </Route> */}
             </Routes>
       </Router>

@@ -1,5 +1,5 @@
 import React from "react";
-import Movies from "../Movies.js";
+import Movies from "../Movies";
 
 // const Home = () => {
 //   return <h1>Home</h1>;
@@ -8,13 +8,16 @@ import Movies from "../Movies.js";
 function Home(){
   return(
     <div>
-      <h1>Home</h1>
+      <h1>Available Movies</h1>
 
       <table>
         <thead>
           <tr>
             <th>Name</th>
-            <th>Price</th>
+            <th>Genre</th>
+            <th>Price for 12h</th>
+            <th>Is in stock</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -22,7 +25,10 @@ function Home(){
             Movies.map((movie)=>(
               <tr key={movie.id}>
                 <td>{movie.name}</td>
+                <td>{movie.genre}</td>
                 <td>{movie.price}</td>
+                <td>{movie.inStock}</td>
+                <td>Rent</td>
               </tr>
             ))
           }
