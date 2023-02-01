@@ -57,90 +57,100 @@ const Login = () => {
       setShowRegister(false);
       alert ("Registered succesfully. You can now log in!");
       window.location.reload();
-    
   }
 
   return (
     <div>
       {!showRegister ? (
-         <> 
+        <>
+         <div id="login"> 
+         <label for="email">Email</label>
          <input
         type = "email" 
         placeholder = "Email" 
         value= {email}
         onChange={(e)=> setEmail(e.target.value)}
         />
+        <label for="password">Password</label>
         <input
         type = "password" 
         placeholder = "Password" 
         value= {password}
         onChange={(e)=> setPassword(e.target.value)}
         />
-        <button onClick={handleLogin}>Login</button>
-        <button onClick={()=> setShowRegister(true)}>Register</button>
-      </>
+        <button id="signin-button" onClick={handleLogin}>Sign in</button>
+        </div>
+        <button id="register-button" onClick={()=> setShowRegister(true)}>Register</button>
+        </>
       ) :(
         <> 
-        <input
-       type = "email" 
-       placeholder = "Email" 
-       value= {email}
-       onChange={(e)=> setEmail(e.target.value)}
-       />
-       <input
-       type = "password" 
-       placeholder = "Password" 
-       value= {password}
-       onChange={(e)=> setPassword(e.target.value)}
-       />
-       <button onClick={handleLogin}>Login</button>
-        
-         <input
+          <div id="login"> 
+          <label for="email">Email</label>
+          <input
+            type = "email" 
+            placeholder = "Email" 
+            value= {email}
+            onChange={(e)=> setEmail(e.target.value)}
+          />
+          <label for="password">Password</label>
+          <input
+            type = "password" 
+            placeholder = "Password" 
+            value= {password}
+            onChange={(e)=> setPassword(e.target.value)}
+          />
+          <button id="signin-button" onClick={handleLogin}>Sign in</button>
+          </div>
+
+          <div id="login"> 
+          <label for="name">Name</label>
+          <input
             type = "text" 
             placeholder = "name" 
             value= {newName}
             onChange={(e)=> setNewName(e.target.value)}
           />
+          <label for="surname">Surname</label>
           <input
             type = "text" 
             placeholder = "surname" 
             value= {newSurname}
             onChange={(e)=> setNewSurname(e.target.value)}
           />
+          <label for="email">Email</label>
           <input
             type = "email" 
             placeholder = "Email" 
             value= {newEmail}
             onChange={(e)=> setNewEmail(e.target.value)}
           />
+          <label for="email">Email again</label>
           <input
             type = "email" 
             placeholder = "Email again" 
             value= {newEmailRepeat}
             onChange={(e)=> setNewEmailRepeat(e.target.value)}
           />
+          <label for="password">Password</label>
           <input
             type = "password" 
             placeholder = "Password" 
             value= {newPassword}
             onChange={(e)=> setNewPassword(e.target.value)}
           />
+          <label for="password">Password again</label>
            <input
             type = "password" 
             placeholder = "Password again" 
             value= {newPasswordRepeat}
             onChange={(e)=> setNewPasswordRepeat(e.target.value)}
           />
-        
-          <button onClick={handleRegister}>Register</button>
+          <button id="register-button" onClick={handleRegister}>Register</button>
+          </div>
         </>
-      )
-    }
-                       
+      )}            
     </div>
- 
   )
-
 };
 
 export default Login;
