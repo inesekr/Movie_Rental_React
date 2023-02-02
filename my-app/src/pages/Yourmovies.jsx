@@ -18,6 +18,7 @@ function Yourmovies ()  {
             <th>Genre</th>
             <th>Time</th>
             <th>Price</th>
+            <th>Quantity</th>
             <th></th>
           </tr>
         </thead>
@@ -28,7 +29,9 @@ function Yourmovies ()  {
               <tr key={movie.id}>
                 <td>{movie.name}</td>
                 <td>{movie.genre}</td>
+                <td>12h</td>
                 <td>{movie.price}</td>
+                <td>{movie.quantity}</td>
                 <td>Remove</td>
               </tr>
             ))

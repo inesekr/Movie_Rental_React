@@ -107,7 +107,16 @@ function Home(){
       setMovies(updatedMovies);
       localStorage.setItem("movies", JSON.stringify(updatedMovies));
 
-      yourMovies.push(movie);
+      let movieIndex = yourMovies.findIndex(m=>m.id===movie.id);
+      if(movieIndex === -1){
+        yourMovies.push({...movie, quantity: 1});
+      }
+      else{
+        yourMovies[movieIndex].quantity++;
+      }
+
+      // yourMovies.push(movie);
+
       localStorage.setItem("yourmovies", JSON.stringify(yourMovies));
 
     //  const updatedMovie = {...movie, inStock:movie.inStock -1};
@@ -147,7 +156,7 @@ function Home(){
                 )}
               </td>
               <td>
-                <button onClick={()=>handleRent(movie)}>Rent</button>
+                <p onClick={()=>handleRent(movie)}>Rent</p>
               </td>
             </tr>
           ))

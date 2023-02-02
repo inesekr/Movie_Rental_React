@@ -161,7 +161,7 @@ tr td:nth-child(3), tr th:nth-child(3){
   text-align:left;
 }
 
-tr td:nth-child(5){
+#table tr td:nth-child(5){
   background-color:#000000;
   color:#ffffff;
   width:40px;
@@ -271,6 +271,11 @@ img{
   padding-right:10px;
 }
 
+#yourTable tr td:nth-child(6){
+  background-color:#C93333;
+  color:#ffffff;
+  width:40px;
+}
 
 
 #footer{
