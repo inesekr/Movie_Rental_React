@@ -64,14 +64,14 @@ const Login = () => {
       {!showRegister ? (
         <>
          <div id="login"> 
-         <label for="email">Email</label>
+         <label htmlFor="email">Email</label>
          <input
         type = "email" 
         placeholder = "Email" 
         value= {email}
         onChange={(e)=> setEmail(e.target.value)}
         />
-        <label for="password">Password</label>
+        <label htmlFor="password">Password</label>
         <input
         type = "password" 
         placeholder = "Password" 
@@ -85,14 +85,14 @@ const Login = () => {
       ) :(
         <> 
           <div id="login"> 
-          <label for="email">Email</label>
+          <label htmlFor="email">Email</label>
           <input
             type = "email" 
             placeholder = "Email" 
             value= {email}
             onChange={(e)=> setEmail(e.target.value)}
           />
-          <label for="password">Password</label>
+          <label htmlFor="password">Password</label>
           <input
             type = "password" 
             placeholder = "Password" 
@@ -103,42 +103,42 @@ const Login = () => {
           </div>
 
           <div id="login"> 
-          <label for="name">Name</label>
+          <label htmlFor="name">Name</label>
           <input
             type = "text" 
             placeholder = "name" 
             value= {newName}
             onChange={(e)=> setNewName(e.target.value)}
           />
-          <label for="surname">Surname</label>
+          <label htmlFor="surname">Surname</label>
           <input
             type = "text" 
             placeholder = "surname" 
             value= {newSurname}
             onChange={(e)=> setNewSurname(e.target.value)}
           />
-          <label for="email">Email</label>
+          <label htmlFor="email">Email</label>
           <input
             type = "email" 
             placeholder = "Email" 
             value= {newEmail}
             onChange={(e)=> setNewEmail(e.target.value)}
           />
-          <label for="email">Email again</label>
+          <label htmlFor="email">Email again</label>
           <input
             type = "email" 
             placeholder = "Email again" 
             value= {newEmailRepeat}
             onChange={(e)=> setNewEmailRepeat(e.target.value)}
           />
-          <label for="password">Password</label>
+          <label htmlFor="password">Password</label>
           <input
             type = "password" 
             placeholder = "Password" 
             value= {newPassword}
             onChange={(e)=> setNewPassword(e.target.value)}
           />
-          <label for="password">Password again</label>
+          <label htmlFor="password">Password again</label>
            <input
             type = "password" 
             placeholder = "Password again" 

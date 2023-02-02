@@ -169,6 +169,10 @@ tr td:nth-child(5){
 padding-right:20px;
 }
 
+img{
+  height:14px;
+}
+
 #profile-main{
   color:#000000;
   background-color:white;

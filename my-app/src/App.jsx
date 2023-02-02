@@ -22,21 +22,11 @@ const App = ()=>{
     }
   }, []);
 
-  // const handleLogin = ()=>{
-  //   setIsLoggedIn(true);
-  //   localStorage.setItem("isLoggedIn", true);
-  // };
-
   const handleLogout = ()=>{
-   setIsLoggedIn(false);
+    setIsLoggedIn(false);
     localStorage.removeItem("isLoggedIn");
     // navigate.push("/login");
   };
-
-  // const isLoggedIn = ()=>{
-  //   return localStorage.getItem("isLoggedIn")==="true";
-  // };
-
 
   if (!isLoggedIn){
     return(
@@ -52,19 +42,6 @@ const App = ()=>{
         <Header/>
         <Router>
           <nav id="nav">
-        
-            {/* <a id="home-a" href="home.html" >
-              Home
-            </a>
-            <a id="a" href="yourmovies.html" >
-              YourMovies
-            </a>
-            <a id="a" href="profile.html" >
-              Profile
-            </a>
-            <a id="a" href="login.html" onClick={handleLogout}>
-              Logout
-            </a> */}
             <ul id="nav-list">
               <li >
                 <Link id="home-link" to="/">Home</Link>
@@ -85,7 +62,6 @@ const App = ()=>{
             <Route index element={<Home></Home>}></Route>
             <Route path='/yourmovies' element={<Yourmovies></Yourmovies>}></Route>
             <Route path='/profile' element={<Profile></Profile>}></Route>
-            {/* <Route path='/login' element={<Login></Login>}></Route> */}
             {/* </Route> */}
           </Routes>
         </Router>
