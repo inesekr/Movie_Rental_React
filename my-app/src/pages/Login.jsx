@@ -33,12 +33,66 @@ const Login = () => {
   const handleRegister = () => {
     // event.preventDefault();
 
-    // console.log("register button event trigered");
+    let regexp = /\S+@\S+\.\S+/; //this checks for format anything@anything.anything
+    let regexpLetters = /^[A-Za-z]*$/; //allows only letters, NO spaces
 
+    if(newName===""){
+      alert ("Please enter your name!");
+      newName.focus();
+      return false;
+    }
+    if(newName.length < 2){
+      alert ("Name must be at least 2 characters long!");
+      newName.focus();
+      return false;
+    }
+    if( !regexpLetters.test(newName)){
+      // if( !nameReg.value.match(regexpLetters))
+      alert ("Name must include letters only!");
+      newName.focus();
+      return false;
+    }
+
+    if(newSurname===""){
+      alert ("Please enter your surname!");
+      newSurname.focus();
+      return false;
+    }
+    if(newSurname.length < 2){
+      alert ("Surname must be at least 2 characters long!");
+      newSurname.focus();
+      return false;
+    }
+    if( !regexpLetters.test(newSurname)){
+      // if( !nameReg.value.match(regexpLetters))
+      alert ("Surname must include letters only!");
+      newSurname.focus();
+      return false;
+    }
+    if (newEmail ==="" ){
+      alert ("Please enter your email address!");
+      newEmail.focus();
+      return false;
+    }
+    if( !regexp.test(newEmail)){
+      alert ("Please enter your email address in correct format!");
+      newEmail.focus();
+      return false;
+    }
     if (newEmail!== newEmailRepeat){
       alert("Emails do not match!");
       return;
     } 
+    if(newPassword === ""){
+      alert ("Please enter your password!");
+      newPassword.focus();
+      return false;
+  }
+  if(newPassword.length<8){
+      alert ("Password must be at least 8 characters long!");
+      newPassword.focus();
+      return false;
+  }
    if(newPassword !== newPasswordRepeat){
       alert("Passwords do not match!");
       return;

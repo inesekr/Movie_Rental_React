@@ -277,6 +277,36 @@ img{
   width:40px;
 }
 
+#time{
+  background-color:#ffffff;
+  padding-left:8px;
+  padding-right:8px;
+  font-size:8px;
+  padding-top:2px;
+  padding-bottom:2px;
+}
+
+#time-sign-minus{
+  background-color:#000000;
+  color:#ffffff;
+  font-size:6px;
+  font-weight:bold;
+  padding-top:3px;
+  padding-bottom:3px;
+  padding-left:4px;
+  padding-right:4px;
+}
+#time-sign-plus{
+  background-color:#000000;
+  color:#ffffff;
+  font-size:6px;
+  font-weight:bold;
+  padding-top:3px;
+  padding-bottom:3px;
+  padding-left:4px;
+  padding-right:4px;
+}
+
 
 #footer{
   font-size:10px;
