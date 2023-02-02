@@ -77,7 +77,8 @@ function Home(){
   // and set current user on login
 
   // const[yourMovies, setYourMovies] = useState("");
-  // const[movies, setMovies] = useState(movies);
+
+  const[moviesState, setMovies] = useState(movies);
   let yourMovies = JSON.parse(localStorage.getItem("yourmovies")) || [];
 
   const handleRent = (movie) =>{
@@ -92,11 +93,27 @@ function Home(){
     //   }
     //   return m;
     // });
-    yourMovies.push(movie);
+    
     // setMovies(updatedMovies);
     // setYourMovies([...yourMovies, movie]);
-    localStorage.setItem("yourmovies", JSON.stringify(yourMovies));
-        
+
+  
+    let updatedMovies = moviesState.map(m=>{
+        if(m.id===movie.id){
+          m.inStock--;
+        }
+        return m;
+      });
+      setMovies(updatedMovies);
+      localStorage.setItem("movies", JSON.stringify(updatedMovies));
+
+      yourMovies.push(movie);
+      localStorage.setItem("yourmovies", JSON.stringify(yourMovies));
+
+    //  const updatedMovie = {...movie, inStock:movie.inStock -1};
+    //  movies = movies.map((m)=>(m.id===movie.id ? updatedMovie :m));
+    //  localStorage.setItem("movies", JSON.stringify(movies));  
+    
   };
 
   return(

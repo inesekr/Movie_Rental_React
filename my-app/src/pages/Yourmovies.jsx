@@ -4,7 +4,7 @@ import {useState, useEffect} from 'react';
 
 function Yourmovies ()  {
 
-  let yourMovies = useState(JSON.parse(localStorage.getItem("yourmovies")) || []);
+  let yourMovies = JSON.parse(localStorage.getItem("yourmovies")) || [];
 
   return (
     // <h1>Here will be your selected movies page</h1>;
