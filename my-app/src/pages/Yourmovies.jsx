@@ -4,10 +4,27 @@ import {useState, useEffect} from 'react';
 
 function Yourmovies ()  {
 
-  const [yourMovies, setYourMovies] = useState(()=>{
+  // const [yourMovies, setYourMovies] = useState(()=>{
+  //   try{
+  //   const localData = JSON.parse(localStorage.getItem("yourmovies")) || [];
+  //   return localData.map(movie=>({...movie, hours:12}));
+  //   } catch(error) {
+  //     return[];
+  //   }
+  // });
+
+    const [yourMovies, setYourMovies] = useState(()=>{
+  
     const localData = JSON.parse(localStorage.getItem("yourmovies")) || [];
-    return localData.map(movie=>({...movie, hours:12}));
+    return localData.map(movie=>({...movie}));
+    
   });
+
+    useEffect(()=>{
+      localStorage.setItem("yourmovies", JSON.stringify(yourMovies));
+    }, [yourMovies]);
+
+    console.log(yourMovies);
 
 
   const handleHoursChange=(index, value)=>{
@@ -24,7 +41,20 @@ function Yourmovies ()  {
     });
   };
 
-
+  const handleQuantityChange=(index, value)=>{
+    setYourMovies(prevMovies=>{
+      const updatedMovies = JSON.parse(JSON.stringify(prevMovies));
+    
+      updatedMovies[index].quantity = value ? updatedMovies[index].quantity + 1 : updatedMovies[index].quantity -1;
+      
+      if (updatedMovies[index].hours>168){
+        updatedMovies[index].hours = 168;
+      } else if (updatedMovies[index].quantity<0){
+        updatedMovies[index].quantity = 0;
+      }
+      return updatedMovies;
+    });
+  };
   // function handleRemove(movie){
 
   // }
@@ -55,7 +85,7 @@ function Yourmovies ()  {
                 <td>{movie.genre}</td>
                 <td><span id="time-span"><span id="time-sign-minus" onClick={()=>handleHoursChange(index, false)}>{'<'}</span><span id="time"><span id="hours">{movie.hours}</span><span id="hours-sign">h</span></span><span id="time-sign-plus" onClick={()=>handleHoursChange(index, true)}>{'>'}</span></span></td>
                 <td>{movie.price}</td>
-                <td><span id="quantity-span"><span id="minus-sign">-</span><span id="quantity">{movie.quantity}</span><span id="plus-sign">+</span></span></td>
+                <td><span id="quantity-span"><span id="minus-sign" onClick={()=>handleQuantityChange(index, false)}>-</span><span id="quantity">{movie.quantity}</span><span id="plus-sign" onClick={()=>handleQuantityChange(index, true)}>+</span></span></td>
                             
                 <td>
                   <p >Remove</p>

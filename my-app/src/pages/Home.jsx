@@ -107,13 +107,22 @@ function Home(){
       setMovies(updatedMovies);
       localStorage.setItem("movies", JSON.stringify(updatedMovies));
 
+      // let movieIndex = yourMovies.findIndex(m=>m.id===movie.id);
+      // if(movieIndex === -1){
+      //   yourMovies.push({...movie, quantity: 1});
+      // }
+      // else{
+      //   yourMovies[movieIndex].quantity++;
+      // }
+
       let movieIndex = yourMovies.findIndex(m=>m.id===movie.id);
       if(movieIndex === -1){
-        yourMovies.push({...movie, quantity: 1});
+        yourMovies.push({...movie, hours:12, quantity: 1});
       }
       else{
         yourMovies[movieIndex].quantity++;
       }
+
 
       // yourMovies.push(movie);
 
