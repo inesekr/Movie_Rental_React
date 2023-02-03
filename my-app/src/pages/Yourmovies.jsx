@@ -4,18 +4,26 @@ import {useState, useEffect} from 'react';
 
 function Yourmovies ()  {
 
- const [yourMovies, setYourMovies] = useState(()=>{
-  const localData = JSON.parse(localStorage.getItem("yourmovies")) || [];
-  return localData.map(movie=>({...movie, hours:12}));
-});
+  const [yourMovies, setYourMovies] = useState(()=>{
+    const localData = JSON.parse(localStorage.getItem("yourmovies")) || [];
+    return localData.map(movie=>({...movie, hours:12}));
+  });
+
 
   const handleHoursChange=(index, value)=>{
-      setYourMovies(prevMovies=>{
-      const updatedMovies = [...prevMovies];
-      updatedMovies[index].hours = value ? prevMovies[index].hours + 12 : prevMovies[index].hours -12;
+    setYourMovies(prevMovies=>{
+      const updatedMovies = JSON.parse(JSON.stringify(prevMovies));
+    
+      updatedMovies[index].hours = value ? updatedMovies[index].hours + 12 : updatedMovies[index].hours -12;
+      if (updatedMovies[index].hours>168){
+        updatedMovies[index].hours = 168;
+      } else if (updatedMovies[index].hours<12){
+        updatedMovies[index].hours = 12;
+      }
       return updatedMovies;
     });
   };
+
 
   // function handleRemove(movie){
 
