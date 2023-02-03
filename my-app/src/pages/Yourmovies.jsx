@@ -4,7 +4,22 @@ import {useState, useEffect} from 'react';
 
 function Yourmovies ()  {
 
-  let yourMovies = JSON.parse(localStorage.getItem("yourmovies")) || [];
+ const [yourMovies, setYourMovies] = useState(()=>{
+  const localData = JSON.parse(localStorage.getItem("yourmovies")) || [];
+  return localData.map(movie=>({...movie, hours:12}));
+});
+
+  const handleHoursChange=(index, value)=>{
+      setYourMovies(prevMovies=>{
+      const updatedMovies = [...prevMovies];
+      updatedMovies[index].hours = value ? prevMovies[index].hours + 12 : prevMovies[index].hours -12;
+      return updatedMovies;
+    });
+  };
+
+  // function handleRemove(movie){
+
+  // }
 
   return (
 
@@ -26,14 +41,18 @@ function Yourmovies ()  {
         <tbody id="yourBody">
     
           {
-            yourMovies.map((movie)=>(
+            yourMovies.map((movie, index)=>(
               <tr key={movie.id}>
                 <td>{movie.name}</td>
                 <td>{movie.genre}</td>
-                <td><span id="time-span"><span id="time-sign-minus">{'<'}</span><span id="time"><span id="hours">12</span><span id="hours-sign">h</span></span><span id="time-sign-plus">{'>'}</span></span></td>
+                <td><span id="time-span"><span id="time-sign-minus" onClick={()=>handleHoursChange(index, false)}>{'<'}</span><span id="time"><span id="hours">{movie.hours}</span><span id="hours-sign">h</span></span><span id="time-sign-plus" onClick={()=>handleHoursChange(index, true)}>{'>'}</span></span></td>
                 <td>{movie.price}</td>
-                <td><span id="minus-sign">-</span>{movie.quantity}<span id="plus-sign">+</span></td>
-                <td>Remove</td>
+                <td><span id="quantity-span"><span id="minus-sign">-</span><span id="quantity">{movie.quantity}</span><span id="plus-sign">+</span></span></td>
+                            
+                <td>
+                  <p >Remove</p>
+                  {/* <p onClick={()=>handleRemove(movie)}>Remove</p> */}
+                </td>
               </tr>
             ))
           }

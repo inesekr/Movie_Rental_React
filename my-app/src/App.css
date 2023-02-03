@@ -277,7 +277,7 @@ img{
   width:40px;
 }
 
-#time{
+#time, #quantity{
   background-color:#ffffff;
   padding-left:8px;
   padding-right:8px;
@@ -297,6 +297,17 @@ img{
   padding-right:4px;
 }
 #time-sign-plus{
+  background-color:#000000;
+  color:#ffffff;
+  font-size:6px;
+  font-weight:bold;
+  padding-top:3px;
+  padding-bottom:3px;
+  padding-left:4px;
+  padding-right:4px;
+}
+
+#plus-sign, #minus-sign{
   background-color:#000000;
   color:#ffffff;
   font-size:6px;
